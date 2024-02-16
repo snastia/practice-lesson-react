@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/practice-lesson-react/snastia/static/css/main.7acaea2f.css",
-    "main.js": "/practice-lesson-react/snastia/static/js/main.8993b4c1.js",
+    "main.js": "/practice-lesson-react/snastia/static/js/main.b6624837.js",
     "index.html": "/practice-lesson-react/snastia/index.html",
     "main.7acaea2f.css.map": "/practice-lesson-react/snastia/static/css/main.7acaea2f.css.map",
-    "main.8993b4c1.js.map": "/practice-lesson-react/snastia/static/js/main.8993b4c1.js.map"
+    "main.b6624837.js.map": "/practice-lesson-react/snastia/static/js/main.b6624837.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.8993b4c1.js"
+    "static/js/main.b6624837.js"
   ]
 }
