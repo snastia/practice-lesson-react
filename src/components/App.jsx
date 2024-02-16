@@ -19,7 +19,7 @@ export class App extends Component {
 
   toggleCompleted = (todoId) => {
     this.setState(prevState => (
-      {todos: prevState.todos.map(todo=> todo.id === todoId ?{...todo, 
+      {toDos: prevState.toDos.map(todo=> todo.id === todoId ?{...todo, 
         completed: !todo.completed} : todo)
       })
     )
@@ -28,7 +28,7 @@ export class App extends Component {
   deleteTodo = (todoId) => {
       this.setState((prevState) => {
          return {
-          todos: prevState.todos.filter(todo => todo.id !== todoId)
+          toDos: prevState.toDos.filter(todo => todo.id !== todoId)
          }
       })
     }
@@ -53,7 +53,7 @@ export class App extends Component {
     return (
     <div>
       <GoalForm addToDo={this.addToDo}/>
-      <TodoList toDos={this.state.toDos} onDelete={this.deleteTodo} onToggleCompiled={this.toggleCompleted}/>
+      <TodoList todos={this.state.toDos} onDelete={this.deleteTodo} onToggleCompleted={this.toggleCompleted}/>
     </div>
   )
   }

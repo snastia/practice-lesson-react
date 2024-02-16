@@ -1,6 +1,6 @@
 import {ToDo} from "./Todo"
 
-export function TodoList({todos, onDelete}){
+export function TodoList({todos, onDelete, onToggleCompleted}){
     return(
         <ul>
           {todos.map((todo)=>{
@@ -10,6 +10,7 @@ export function TodoList({todos, onDelete}){
                 completed={todo.completed}
                 onDelete={onDelete}
                 todoId={todo.id}
+                toggle={onToggleCompleted}
                 />
             })}
         </ul>

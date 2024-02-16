@@ -1,11 +1,11 @@
-export function ToDo({todoId, text, completed, onDelete, toggleCompleted}){
+export function ToDo({todoId, text, completed, onDelete, toggle}){
 
     const handleDelete = () =>{
        onDelete(todoId)
     }
    
     const handleChange= () =>{
-       toggleCompleted(todoId)
+       toggle(todoId)
     }
       return(
        <li>
