@@ -1,3 +1,5 @@
+import { Button } from "components/Button/Button.styled"
+
 export function ToDo({todoId, text, completed, onDelete, toggle}){
 
     const handleDelete = () =>{
@@ -11,7 +13,7 @@ export function ToDo({todoId, text, completed, onDelete, toggle}){
        <li>
            <input type="checkbox" name="" id="" checked={completed} onChange={handleChange}/>
            <p>{text}</p>
-           <button type="button" onClick={handleDelete}>Delete</button>
+           <Button type="button" onClick={handleDelete}>Delete</Button>
        </li>
       )
    }

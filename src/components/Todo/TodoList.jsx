@@ -1,9 +1,10 @@
 import {ToDo} from "./Todo"
 
-export function TodoList({todos, onDelete, onToggleCompleted}){
+export function TodoList({toDos, onDelete, onToggleCompleted, visibleTodos}){
+    console.log(toDos)
     return(
         <ul>
-          {todos.map((todo)=>{
+          {visibleTodos.map((todo)=>{
               return  <ToDo
                 key={todo.id}
                 text={todo.text}

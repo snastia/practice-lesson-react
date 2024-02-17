@@ -1,14 +1,26 @@
 import { Component } from "react";
+import { FaPlus } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
+import { nanoid } from "nanoid";
 import { TodoList } from "./Todo/TodoList";
 import initialTodos from "../todo.json";
-import { nanoid } from "nanoid";
 import { GoalForm } from "./GoalForm/GoalForm";
+import { Modal } from "./Modal/Modal";
+import { Btn } from "./Button/Button.jsx";
+import { Filter } from "./Filter/Filter";
 
 export class App extends Component {
 
     state = {
     toDos: initialTodos,
     filter: '',
+    showModal: false
+  }
+
+  changeFilter = (e) => {
+    this.setState({
+      filter: e.currentTarget.value
+    })
   }
 
   componentDidUpdate(prevState){
@@ -46,16 +58,35 @@ export class App extends Component {
         toDos: [newToDo, ...prevState.toDos]
       }
     })
-
+    this.toggleModal()
   }
+
+  toggleModal = () => {
+    this.setState(prev => ({showModal: !prev.showModal}))
+    }
+
+    visibleTodos = () => {
+     return this.state.toDos.filter(toDo => toDo.text.toLowerCase().includes(this.state.filter.toLowerCase()))
+    }
   
   render(){
+    const visibleTodos = this.visibleTodos()
     return (
     <div>
-      <GoalForm addToDo={this.addToDo}/>
-      <TodoList todos={this.state.toDos} onDelete={this.deleteTodo} onToggleCompleted={this.toggleCompleted}/>
+      <Btn type="button" onClick={this.toggleModal}><FaPlus size={24}/></Btn>
+   <Filter value={this.state.filter} onChange={this.changeFilter}/>
+ {this.state.showModal &&
+ <Modal onClose={this.toggleModal}>
+  
+<Btn type="button" onClick={this.toggleModal}><IoMdClose/></Btn>
+<p>Напишіть свою задачу.</p>
+<GoalForm addToDo={this.addToDo}/>
+</Modal>}
+      <TodoList 
+      onDelete={this.deleteTodo} 
+      onToggleCompleted={this.toggleCompleted} 
+      visibleTodos={visibleTodos}/>
     </div>
   )
-  }
-    
+  } 
 };
