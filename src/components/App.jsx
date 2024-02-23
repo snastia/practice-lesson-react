@@ -8,6 +8,7 @@ import { GoalForm } from "./GoalForm/GoalForm";
 import { Modal } from "./Modal/Modal";
 import { Btn } from "./Button/Button.jsx";
 import { Filter } from "./Filter/Filter";
+import { TextForm } from "./GoalForm/GoalForm.styled";
 
 export class App extends Component {
 
@@ -79,7 +80,7 @@ export class App extends Component {
  <Modal onClose={this.toggleModal}>
   
 <Btn type="button" onClick={this.toggleModal}><IoMdClose/></Btn>
-<p>Напишіть свою задачу.</p>
+<TextForm>Напишіть свою задачу.</TextForm>
 <GoalForm addToDo={this.addToDo}/>
 </Modal>}
       <TodoList 

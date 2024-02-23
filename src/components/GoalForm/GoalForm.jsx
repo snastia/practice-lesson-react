@@ -1,6 +1,7 @@
 import { Component } from "react"
 import { Btn } from "components/Button/Button"
 import { CgPlayListAdd } from "react-icons/cg";
+import { TextArea } from "./GoalForm.styled";
 
 export class GoalForm extends Component{
 
@@ -23,7 +24,7 @@ export class GoalForm extends Component{
   render(){
      return(
     <form onSubmit={this.handleFormSubmit}>
-        <textarea name="goal" value={this.state.goal} onChange={this.handleAreaClick}></textarea>
+        <TextArea name="goal" value={this.state.goal} onChange={this.handleAreaClick}></TextArea>
         <Btn type="submit"><CgPlayListAdd size={25}/></Btn>
     </form>
   )
